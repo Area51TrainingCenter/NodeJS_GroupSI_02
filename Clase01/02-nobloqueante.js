@@ -6,4 +6,4 @@ fs.readFile("listado.txt", function(err, contenido){
 		} 
 });
 
-console.log(process.uptime);
+console.log(process.uptime());
