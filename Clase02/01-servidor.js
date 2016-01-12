@@ -2,7 +2,7 @@ var http = require("http").createServer();
 
 function fnServidor(req, res){
 	res.writeHead(200, {"content-type": "text/html"});
-	res.end("<h1>Hola</h1");	
+	res.end("<h1>Hola desde la clase de NodeJS en Area51</h1");	
 }
 
 function fnEjecutando(){
