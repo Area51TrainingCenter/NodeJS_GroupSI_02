@@ -23,16 +23,21 @@ function fnServidor(req, res){
 		}
 	}
 
+	var encontrada=false;
+
 	rutas.forEach(function(item){
 		if(rutaReq===item.ruta){
+			encontrada=true;
 			fs.readFile(item.archivo, fnLeerArchivo);
-
 		}
 	});
 
 
-	res.writeHead(200, {"content-type":"text/html"});
-	res.end(rutaReq);	
+
+	if(req.finished) {
+		res.writeHead(404, {"content-type": "text/html"});
+		res.end("Ruta no encontrada");
+	}
 }
 
 function fnEjecutando(){
