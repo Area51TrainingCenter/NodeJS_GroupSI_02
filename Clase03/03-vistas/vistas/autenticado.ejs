@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
 	</head>
 	<body>
 
@@ -8,7 +8,44 @@
 			<div class="row">
 				<div class="col-sm-4">
 				
-				<h1>Usted está autenticado</h1>
+				<h1><%= nombre %> está autenticado</h1>
+				<br>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Curso</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% cursos.forEach(function(curso){  %>
+						<tr>
+							<td><%= curso %></td>
+						</tr>
+						<% }) %>
+					</tbody>
+				</table>
+
+
+				<br>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Locales</th>
+							<th>Año</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% locales.forEach(function(local){  %>
+						<tr>
+							<td><%= local.nombre %></td>
+							<td><%= local.anno %></td>
+						</tr>
+						<% }) %>
+					</tbody>
+				</table>
+
+				<a href="/editarUsuario/<%= id %>" class="btn btn-info">Editar</a>
+
 				<a href="/logout" class="btn btn-warning">Logout</a>
 
 				</div>
