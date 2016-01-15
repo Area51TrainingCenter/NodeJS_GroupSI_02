@@ -2,10 +2,12 @@ var express = require("express"),
 	app = express(),
 	bodyParser = require("body-parser"),
 	cookieParser = require("cookie-parser"),
-	cookieSession = require("cookie-session");
+	cookieSession = require("cookie-session")
+	motorVistas = "ejs",
+	directorioVistas = __dirname + "/vistas";
 
 function fnLogin(req, res) {
-	res.sendFile(__dirname + "/login.html");
+	res.render("login");
 }
 
 function fnValidar(req, res) {
@@ -21,7 +23,7 @@ function fnValidar(req, res) {
 }
 
 function fnAutenticado(req, res) {
-	res.sendFile(__dirname + "/autenticado.html");
+	res.render("autenticado");
 }
 
 function fnEstaValidado(req, res, next) {
@@ -44,6 +46,9 @@ function fnEjecutando(){
 app.use(bodyParser());
 app.use(cookieParser());
 app.use(cookieSession({secret: "andrea"}));
+
+app.set("view engine", motorVistas);
+app.set("views", directorioVistas);
 
 app.get("/", fnLogin);
 app.post("/validar", fnValidar);
