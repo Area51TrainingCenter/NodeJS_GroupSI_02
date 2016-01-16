@@ -27,7 +27,7 @@ controlador.editar = function(req, res, next){
 			console.log(err);
 		} else {
 			var datos = {
-				registro: registros[0];
+				registro: registros[0]
 			};
 
 			res.render("formEdicion", datos);
@@ -36,7 +36,24 @@ controlador.editar = function(req, res, next){
 }
 
 controlador.actualizar = function(req, res, next){
-	
+	var id = req.params.id;
+	var titulo = req.body.titulo,
+		director = req.body.director,
+		anno = req.body.anno;
+
+	var registro = {
+		titulo: titulo,
+		director: director,
+		anno: anno
+	}
+
+	modelo.actualizar(id, registro, function(err){
+		if(err) {
+			console.log(err);
+		} else {
+			res.redirect("/");
+		}
+	})
 
 }
 
