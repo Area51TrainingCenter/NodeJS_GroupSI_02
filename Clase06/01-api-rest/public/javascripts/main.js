@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 	//Referencias
 	var tbody = document.getElementsByTagName("tbody")[0];
+	var btnInsertar = document.getElementById("btnInsertar");
+	var listado = document.getElementById("listado");
+	var formInsertar = document.getElementById("formInsertar");
 
 	//Funciones extras
 	function fnLimpiarListado(){
@@ -70,4 +73,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 	fnListar();
+
+	//Funciones Eventos Callback
+	function fnFormInsertar(){
+		listado.style.display = "none";
+		formInsertar.style.display = "block";
+	}
+
+	//Eventos DOM
+	btnInsertar.addEventListener("click", fnFormInsertar)
 });
