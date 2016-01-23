@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require("cookie-session");
 
+var modelo = require("./modelos/modeloUsuarios");
+
 var passport = require("passport");
 var passportLocal = require("passport-local").Strategy;
 
@@ -21,9 +23,7 @@ passport.serializeUser(function(usuario, done) {
 passport.deserializeUser(function(id, done) {
     var idUsuario = id;
 
-    done(null, {id:20, nombre:"sergio"});
-
-    /*modelo.detalleUsuario(id, function(err,registros){
+    modelo.detalleUsuario(id, function(err,registros){
       if(err){
         done(err);
       } else if(registros.length==0){
@@ -34,7 +34,7 @@ passport.deserializeUser(function(id, done) {
                                    //req.isAuthenticate()
                                    //req.logout();
       }
-    });*/
+    });
 });
 
 passport.use(new passportLocal(
@@ -46,7 +46,18 @@ passport.use(new passportLocal(
     console.log("Usuario: "+username);
     console.log("Contraseña: "+password);
 
-    return done(null, {id:20, nombre:"sergio"});
+    modelo.validar(username, password, function(err, registros){
+      if(err) {
+        return done(err);
+      }
+
+      if(registros.length) {
+        var usuario = {id: registros[0].id, nombre: registros[0].nombre};
+        return done(null, usuario);
+      } else {
+        return done(null, false);
+      }
+    });
 
     //req.user = {id:20, nombre:"sergio"}
 
