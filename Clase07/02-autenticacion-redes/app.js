@@ -6,10 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require("cookie-session");
 
-var modelo = require("./modelos/modeloUsuarios");
-
 var passport = require("passport");
-var passportLocal = require("passport-local").Strategy;
+var passportFacebook = require("passport-facebook").Strategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -17,66 +15,41 @@ var users = require('./routes/users');
 var app = express();
 
 passport.serializeUser(function(usuario, done) {
-  done(null, usuario.id);
+  done(null, usuario);
 });
 
-passport.deserializeUser(function(id, done) {
-
-    modelo.detalleUsuario(id, function(err,registros){
-      if(err){
-        done(err);
-      } else if(registros.length==0){
-        done(null, false);
-      } else {
-        done(null, registros[0]);  //req.user  {id:10, nombre:"sergio"}
-                                   //req.user.nombre
-                                   //req.isAuthenticate()
-                                   //req.logout();
-      }
-    });
+passport.deserializeUser(function(usuario, done) {
+    done(null, usuario);
 });
 
-passport.use(new passportLocal(
-  {
-    usernameField: "usuario",
-    passwordField: "contrasena"
-  },
-  function(username, password, done) {
-    console.log("Usuario: "+username);
-    console.log("Contraseña: "+password);
+passport.use(new passportFacebook({
+  clientID      : "953166004718661",
+  clientSecret  : "8439c5f7a04df7b1d7c3ae3ba9930b5c",
+  callbackURL  : "http://localhost:3000/facebook/callback",
+  profileFields : ['id', 'displayName','photos']
+}, function(accessToken, refreshToken, profile, done) {
 
-    modelo.validar(username, password, function(err, registros){
-      if(err) {
-        return done(err);
-      }
+  return done(null, {id:"4848484jji84", displayName:"Sergio"});
 
-      if(registros.length) {
-        var usuario = {id: registros[0].id, nombre: registros[0].nombre};
-        return done(null, usuario);
-      } else {
-        return done(null, false);
-      }
-    });
+  /*modelo.validar(profile.id, function(err, registros){
+    if(err) {return done(err);}
 
-    //req.user = {id:20, nombre:"sergio"}
+    if(registros.length==0) {
+      var obj = {};
+      obj.id = profile.id;
+      obj.proveedor = profile.provider;
+      obj.name = profile.displayName;
+      obj.photo = profile.photos[0].value;
 
-    /*modelo.validar(username, password, function(err, registros){
-      if(err) {
-        return done(err);
-      }
-
-      if(registros.length) {
-        var usuario = {id: registros[0].id, nombre: registros[0].nombre};
-        return done(null, usuario);
-      } else {
-        return done(null, false);
-      }
-
-    });*/
-
-
-  }
-));
+      modelo.insertar(obj, function(err){
+        if(err) return done(null, false);
+        return done(null, obj);
+      })
+    } else {
+      return done(null, registros[0]);
+    }
+  })*/
+}));
 
 
 // view engine setup
@@ -89,9 +62,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(cookieSession({secret: "secreto2016"}));
+app.use(cookieSession({secret: "nodejs"}));
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
