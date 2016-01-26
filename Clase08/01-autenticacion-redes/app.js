@@ -10,6 +10,7 @@ var passport = require("passport");
 var passportFacebook = require("passport-facebook").Strategy;
 var passportGoogle = require("passport-google-oauth2").Strategy;
 var passportTwitter = require("passport-twitter").Strategy;
+var passportGithub = require("passport-github").Strategy;
 
 var credenciales = require("./credenciales");
 
@@ -109,6 +110,33 @@ passport.use(new passportGoogle({
   })
   }));
 
+//PASSPORT GITHUB
+  passport.use(new passportGithub({
+    clientID      : credenciales.github.claveServidor,
+    clientSecret  : credenciales.github.claveSecreta,
+    callbackURL  : credenciales.github.rutaCallback
+  }, function(accessToken, refreshToken, profile, done) {
+ 
+  modelo.validar(profile.id, function(err, registros){
+    if(err) {return done(err);}
+
+    if(registros.length==0) {
+      var obj = {};
+      obj.id = profile.id;
+      obj.proveedor = profile.provider;
+      obj.name = profile.displayName;
+      obj.photo = profile._json.avatar_url;
+
+      modelo.insertar(obj, function(err){
+        if(err) return done(null, false);
+        return done(null, obj);
+      })
+    } else {
+      return done(null, registros[0]);
+    }
+  })
+
+  }));
 
 
 // view engine setup

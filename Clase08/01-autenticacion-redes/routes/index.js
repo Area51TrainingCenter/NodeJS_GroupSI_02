@@ -25,6 +25,12 @@ router.get('/twitter/callback', passport.authenticate('twitter',
   { successRedirect: '/usuario', failureRedirect: '/' }
 ));
 
+router.get('/loginGithub', passport.authenticate('github'));
+router.get('/github/callback', passport.authenticate('github',
+  { successRedirect: '/usuario', failureRedirect: '/' }
+));
+
+
 
 router.get("/usuario", function(req, res){
 	res.render("usuario", req.user);

@@ -13,6 +13,11 @@ var credenciales = {
 		claveServidor: "NpvrGnSkfdsgxz6Fs2RU13MMl",
 		claveSecreta: "TkifVjKIOwpPn46LfbhrUeVPtaPLUtq3MwkcwMLGrCnCesn83a",
 		rutaCallback: "http://127.0.0.1:3000/twitter/callback"
+	},
+	github: {
+		claveServidor: "ae62d447df13acc07e87",
+		claveSecreta: "966cd88ccb01e1a8eb92cb8f7d7aa5d9d6f65115",
+		rutaCallback: "http://localhost:3000/github/callback"
 	}
 };
 
