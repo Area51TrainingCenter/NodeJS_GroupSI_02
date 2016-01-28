@@ -24,6 +24,20 @@ function medicoSeleccionado(){
 	return seleccionado;
 }
 
+function seleccionarMedico(id){
+	var options = document.getElementsByTagName("option");
+
+	Array.prototype.forEach.call(options, function(option) {
+		if(option.value==id) option.selected = true;
+	})
+	/*for(var i=0; i<options.length; i++) {
+		if(options[i].value==id) {
+			options[i].selected = true;
+		}
+	};*/
+}
+
+
 function fnCambioMedico(){
 
 }
