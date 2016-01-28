@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+        ServerAdmin sergiohidalgocaceres@gmail.com
+        ServerName sistema.misionmedicaperu.com
+        ServerAlias sistema.misionmedicaperu.com
+        ErrorLog logs/sistema.misionmedicaperu.com-error.log
+        CustomLog logs/sistema.misionmedicaperu.com-access.log common
+        ProxyRequests off
+        <Proxy *>
+                Order deny,allow
+                Allow from all
+        </Proxy>
+        <Location />
+                ProxyPass http://localhost:1337/
+                ProxyPassReverse http://localhost:1337/
+                ProxyPass ws://localhost:1337/
+        </Location>
+</VirtualHost>
