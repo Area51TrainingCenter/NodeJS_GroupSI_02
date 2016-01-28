@@ -37,9 +37,23 @@ function seleccionarMedico(id){
 	};*/
 }
 
+function fnListado(registros) {
+	registros.forEach(function(registro){
+		crearLista(registro.id, registro.nombreMedico);
+	});
+}
 
 function fnCambioMedico(){
+	var id = medicoSeleccionado();
 
+	socket.emit("cambio medico", id);
+}
+
+function fnActualizar(id) {
+	seleccionarMedico(id);
 }
 
 listaMedicos.addEventListener("change", fnCambioMedico);
+
+socket.on("lista de medicos", fnListado);
+socket.on("actualizar", fnActualizar);
