@@ -1,0 +1,26 @@
+PARA INSTALAR SAILS
+npm install sails -g
+
+PARA CREAR UNA APP
+sails new <<nombre app>>
+
+PARA EJECUTAR SAILS
+sails lift
+
+PARA CREAR UN CONTROLADOR
+sails generate controller <<nombre controlador>>
+sails generate controller <<nombre controlador>> listar borrar editar actualizar
+
+PARA CREAR UN MODELO
+sails generate model <<nombre modelo>>
+sails generate model <<nombre modelo>> id:"integer" nombre:"string"
+
+PARA CREAR UN CONTROLADOR Y UN MODELO AL MISMO TIEMPO
+sails generate api <<nombre>>
+
+
+
+
+
+
+
