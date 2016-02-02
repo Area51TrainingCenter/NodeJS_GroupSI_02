@@ -1,0 +1,12 @@
+PARA INSERTAR O CREAR
+Mascotas.create({nombreMascota: "Lucas", raza:"Samoyedo"})
+
+PARA SELECCIONAR
+Mascotas.find()
+Mascotas.find({idMascota: 2})
+
+PARA ACTUALIZAR
+Mascotas.update({idMascota:3, createdAt: {">": new Date()}}, {raza: "Chihuagua", nombre: "Lucas2"})
+
+PARA ELIMINAR
+Mascotas.destroy({idMascota:3})
