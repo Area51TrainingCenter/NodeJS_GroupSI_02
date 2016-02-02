@@ -33,8 +33,8 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
-  }
+    view: 'home'
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,32 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  
+  'get /medicos/listar': {
+    controller: "MedicosController",
+    action: "listar"
+  },
+
+  'post /medicos/insertar': {
+    controller: "MedicosController",
+    action: "insertar"
+  },
+
+  'post /medicos/actualizar/:id': {
+    controller: "MedicosController",
+    action: "actualizar"
+  },
+
+  'get /medicos/eliminar/:id': {
+    controller: "MedicosController",
+    action: "eliminar"
+  },
+
+  'get /medicos/editar/:id': {
+    controller: "MedicosController",
+    action: "editar"
+  }
+
+
 
 };
