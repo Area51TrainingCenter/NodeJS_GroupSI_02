@@ -15,7 +15,12 @@ module.exports = {
   		unique: true
   	},
 
-  	nombreCompleto: "string"
+  	nombreCompleto: "string",
+
+  	curso: {
+  		collection: "Cursos",
+  		via: "alumno"
+  	}
 
   }
 };

@@ -10,3 +10,15 @@ Mascotas.update({idMascota:3, createdAt: {">": new Date()}}, {raza: "Chihuagua",
 
 PARA ELIMINAR
 Mascotas.destroy({idMascota:3})
+
+PARA CREAR UNA APP
+sails new <<nombre app>>
+
+PARA CREAR UN MODELO
+sails generate model <<nombre modelo>>
+
+PARA CREAR UN CONTROLADOR
+sails generate controller <<nombre controlador>>
+
+PARA GENERAR AMBOS A LA VEZ
+sails generate api <<nombre>>
