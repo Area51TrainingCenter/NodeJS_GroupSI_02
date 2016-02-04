@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf8">
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Diagnóstico</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% regs.forEach(function(reg){ %>
+			<tr>
+				<td><%= reg.idDiagnostico %></td>
+				<td><%= reg.nombreDiagnostico%></td>
+				<td><a href="/diagnosticos/editar/<%= reg.idDiagnostico%>">Editar</a>&nbsp;<a href="/diagnosticos/eliminar/<%= reg.idDiagnostico %>">Eliminar</a></td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+	<form action="/diagnosticos/insertar" method="post">
+		<input type="text" name="nombreDiagnostico" placeholder="Ingrese el nombre" /><br>
+		<button type="submit">Insertar</button>
+	</form>
+
+</body>
+</html>

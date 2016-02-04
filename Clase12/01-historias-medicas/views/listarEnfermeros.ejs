@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf8">
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre Enfermero</th>
+idEnfermero				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% regs.forEach(function(reg){ %>
+			<tr>
+				<td><%= reg.idEnfermero %></td>
+				<td><%= reg.nombreEnfermero%></td>
+				<td><a href="/enfermeros/editar/<%= reg.idEnfermero%>">Editar</a>&nbsp;<a href="/enfermeros/eliminar/<%= reg.idEnfermero %>">Eliminar</a></td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+	<form action="/enfermeros/insertar" method="post">
+		<input type="text" name="nombreEnfermero" placeholder="Ingrese el nombre" /><br>
+		<button type="submit">Insertar</button>
+	</form>
+
+</body>
+</html>

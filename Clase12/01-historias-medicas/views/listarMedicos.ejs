@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf8">
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre Médico</th>
+				<th>CMP</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% regs.forEach(function(reg){ %>
+			<tr>
+				<td><%= reg.idMedico %></td>
+				<td><%= reg.nombreMedico%></td>
+				<td><%= reg.cmp %></td>
+				<td><a href="/medicos/editar/<%= reg.idMedico%>">Editar</a>&nbsp;<a href="/medicos/eliminar/<%= reg.idMedico %>">Eliminar</a></td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+	<form action="/medicos/insertar" method="post">
+		<input type="text" name="nombreMedico" placeholder="Ingrese el nombre" /><br>
+		<input type="text" name="cmp" placeholder="Ingrese el CMP" /><br>
+		<button type="submit">Insertar</button>
+	</form>
+
+</body>
+</html>
