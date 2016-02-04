@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf8">
+</head>
+<body>
+
+	<form action="/historiasmedicas/insertar" method="post">
+		<label>Paciente:</label>
+		<br>
+		<input type="text" name="nombrePaciente" />
+		<br>
+		<label>Médico:</label>
+		<select name="medico">
+			<% medicos.forEach(function(medico){ %>
+				<option value="<%= medico.idMedico %>"><%= medico.nombreMedico %></option>
+			<% }) %>
+		</select>
+		<br>
+		<label>Enfermero:</label>
+		<select name="enfermero">
+			<% enfermeros.forEach(function(enfermero){ %>
+				<option value="<%= enfermero.idEnfermero %>"><%= enfermero.nombreEnfermero %></option>
+			<% }) %>
+		</select>
+		<br>
+		<label>Diagnóstico:</label>
+		<select name="diagnostico">
+			<% diagnosticos.forEach(function(diagnostico){ %>
+				<option value="<%= diagnostico.idDiagnostico %>"><%= diagnostico.nombreDiagnostico %></option>
+			<% }) %>
+		</select>		
+		<br>
+		<button type="submit">Insertar</button>
+	</form>
+
+</body>
+</html>

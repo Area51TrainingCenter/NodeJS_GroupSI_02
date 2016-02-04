@@ -65,7 +65,7 @@ module.exports = {
 			.destroy()
 			.where(filtro)
 			.then(function(registros){
-				res.redirect("/enfermeros/idEnfermerolistar");
+				res.redirect("/enfermeros/listar");
 			})
 			.catch(function(err){
 				res.negotiate(err);

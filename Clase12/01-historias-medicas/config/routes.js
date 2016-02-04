@@ -46,6 +46,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   
+  // Rutas de Médicos
+
   'get /medicos/listar': {
     controller: "MedicosController",
     action: "listar"
@@ -72,6 +74,7 @@ module.exports.routes = {
   },
 
 
+  // Rutas de Enfermeros
 
 
   'get /enfermeros/listar': {
@@ -100,10 +103,7 @@ module.exports.routes = {
   },
 
 
-
-
-
-
+  // Rutas de Diagnósticos
   'get /diagnosticos/listar': {
     controller: "DiagnosticosController",
     action: "listar"
@@ -127,36 +127,45 @@ module.exports.routes = {
   'get /diagnosticos/editar/:id': {
     controller: "DiagnosticosController",
     action: "editar"
-  }  
+  },
 
-
-
-
-
-
-
-  'get /enfermeros/listar': {
-    controller: "EnfermerosController",
+// Rutas de Historias Médicas
+  'get /historiasmedicas/listar': {
+    controller: "HistoriasMedicasController",
     action: "listar"
   },
 
-  'post /enfermeros/insertar': {
-    controller: "EnfermerosController",
+  'post /historiasmedicas/insertar': {
+    controller: "HistoriasMedicasController",
     action: "insertar"
   },
 
-  'post /enfermeros/actualizar/:id': {
-    controller: "EnfermerosController",
+  'post /historiasmedicas/actualizar/:id': {
+    controller: "HistoriasMedicasController",
     action: "actualizar"
   },
 
-  'get /enfermeros/eliminar/:id': {
-    controller: "EnfermerosController",
+  'get /historiasmedicas/eliminar/:id': {
+    controller: "HistoriasMedicasController",
     action: "eliminar"
   },
 
-  'get /enfermeros/editar/:id': {
-    controller: "EnfermerosController",
+  'get /historiasmedicas/editar/:id': {
+    controller: "HistoriasMedicasController",
     action: "editar"
+  },
+
+  'get /historiasmedicas/formInsertar': {
+    controller: "HistoriasMedicasController",
+    action: "formInsertar"
   }
+
+
+
+
+
+
+
+
+
 };

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf8">
+</head>
+<body>
+<!-- 	historia = {
+		idHistoriaMedica: 1,
+		nombrePaciente: "Sergio",
+		medico: 1,
+		enfermero: 2,
+		diagnostico: 6
+	} -->
+
+	<form action="/historiasmedicas/actualizar/<%= historia.idHistoriaMedica %>" method="post">
+		<label>Paciente:</label>
+		<br>
+		<input type="text" name="nombrePaciente" value="<%= historia.nombrePaciente %>" />
+		<br>
+
+<!-- 		medicos = [
+			{idMedico:1, nombreMedico: "Javier"},
+			{idMedico:2, nombreMedico: "Mariela"},	
+			{idMedico:3, nombreMedico: "Alfonso"}
+		] -->
+
+
+		<label>Médico:</label>
+		<select name="medico">
+			<% medicos.forEach(function(medico){ %>
+				<option value="<%= medico.idMedico %>" <% if(medico.idMedico==historia.medico) { %>selected<% } %>><%= medico.nombreMedico %></option>
+			<% }) %>
+		</select>
+		<br>
+		<label>Enfermero:</label>
+		<select name="enfermero">
+			<% enfermeros.forEach(function(enfermero){ %>
+				<option value="<%= enfermero.idEnfermero %>" <% if(enfermero.idEnfermero==historia.enfermero) { %>selected<% } %>><%= enfermero.nombreEnfermero %></option>
+			<% }) %>
+		</select>
+		<br>
+		<label>Diagnóstico:</label>
+		<select name="diagnostico">
+			<% diagnosticos.forEach(function(diagnostico){ %>
+				<option value="<%= diagnostico.idDiagnostico %>" <% if(diagnostico.idDiagnostico==historia.diagnostico) { %>selected<% } %>><%= diagnostico.nombreDiagnostico %></option>
+			<% }) %>
+		</select>		
+		<br>
+		<button type="submit">Actualizar</button>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf8">
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre Paciente</th>
+				<th>Médico</th>
+				<th>Enfermero</th>
+				<th>Diagnóstico</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% regs.forEach(function(reg){ %>
+			<tr>
+				<td><%= reg.idHistoriaMedica %></td>
+				<td><%= reg.nombrePaciente%></td>
+				<td><%= reg.medico.nombreMedico %></td>
+				<td><%= reg.enfermero.nombreEnfermero %></td>
+				<td><%= reg.diagnostico.nombreDiagnostico %></td>
+				<td><a href="/historiasmedicas/editar/<%= reg.idHistoriaMedica%>">Editar</a>&nbsp;<a href="/historiasmedicas/eliminar/<%= reg.idHistoriaMedica %>">Eliminar</a></td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+
+	<a href="/historiasmedicas/formInsertar">Insertar</a>
+
+</body>
+</html>
