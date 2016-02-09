@@ -1,0 +1,14 @@
+    <div class="container">
+
+      <form class="form-signin" ng-controller="loginController as login">
+        <h2 class="form-signin-heading">Acceso</h2>
+        <label for="cUsuario" class="sr-only">Usuario</label>
+        <input type="text" id="cUsuario" name="cUsuario" class="form-control" placeholder="Usuario" required autofocus ng-model="login.datosUsuario.cUsuario">
+        <label for="cContrasena" class="sr-only">Contraseña</label>
+        <input type="password" id="cContrasena" class="form-control" placeholder="Contraseña" required ng-model="login.datosUsuario.cContrasena">
+        <button class="btn btn-lg btn-primary btn-block" ng-click="login.loguearse()">Ingresar</button>
+        <pre>{{login.estado}}</pre>
+      </form>
+
+
+    </div>
