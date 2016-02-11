@@ -34,7 +34,182 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+
+  "get /medicos": {
+    controller: "MedicosController",  
+    action: "listar"
+  },
+  
+  "get /medicos/:pagina/:tamano": {
+    controller: "MedicosController",  
+    action: "listarPaginado"
+  },
+  
+  "get /medicos/contar": {
+    controller: "MedicosController",  
+    action: "contar"
+  },
+  
+  "get /medicos/:id": {
+    controller: "MedicosController",  
+    action: "detallar"
+  },
+  
+  "post /medicos": {
+    controller: "MedicosController",  
+    action: "insertar"  
+  },
+  
+  "put /medicos/:id": {
+    controller: "MedicosController",  
+    action: "actualizar"  
+  },
+  
+  "delete /medicos/:id": {
+    controller: "MedicosController",  
+    action: "eliminar"  
+  },
+
+  "get /paramedicos": {
+    controller: "ParamedicosController",  
+    action: "listar"
+  },
+  
+  "get /paramedicos/:pagina/:tamano": {
+    controller: "ParamedicosController",  
+    action: "listarPaginado"
+  },
+  
+  "get /paramedicos/contar": {
+    controller: "ParamedicosController",  
+    action: "contar"
+  },
+  
+  "get /paramedicos/:id": {
+    controller: "ParamedicosController",  
+    action: "detallar"
+  },
+  
+  "post /paramedicos": {
+    controller: "ParamedicosController",  
+    action: "insertar"  
+  },
+  
+  "put /paramedicos/:id": {
+    controller: "ParamedicosController",  
+    action: "actualizar"  
+  },
+  
+  "delete /paramedicos/:id": {
+    controller: "ParamedicosController",  
+    action: "eliminar"  
+  },
+
+  "get /ambulancias": {
+     controller: "AmbulanciasController",  
+     action: "listar"
+   },
+   
+   "get /ambulancias/:pagina/:tamano": {
+     controller: "AmbulanciasController",  
+     action: "listarPaginado"
+   },
+   
+   "get /ambulancias/contar": {
+     controller: "AmbulanciasController",  
+     action: "contar"
+   },
+   
+   "get /ambulancias/:id": {
+     controller: "AmbulanciasController",  
+     action: "detallar"
+   },
+   
+   "post /ambulancias": {
+     controller: "AmbulanciasController",  
+     action: "insertar"  
+   },
+   
+   "put /ambulancias/:id": {
+     controller: "AmbulanciasController",  
+     action: "actualizar"  
+   },
+   
+   "delete /ambulancias/:id": {
+     controller: "AmbulanciasController",  
+     action: "eliminar"  
+   },
+
+   "get /estados": {
+     controller: "EstadosController",  
+     action: "listar"
+   },
+   
+   "get /estados/:pagina/:tamano": {
+     controller: "EstadosController",  
+     action: "listarPaginado"
+   },
+   
+   "get /estados/contar": {
+     controller: "EstadosController",  
+     action: "contar"
+   },
+   
+   "get /estados/:id": {
+     controller: "EstadosController",  
+     action: "detallar"
+   },
+   
+   "post /estados": {
+     controller: "EstadosController",  
+     action: "insertar"  
+   },
+   
+   "put /estados/:id": {
+     controller: "EstadosController",  
+     action: "actualizar"  
+   },
+   
+   "delete /estados/:id": {
+     controller: "EstadosController",  
+     action: "eliminar"  
+   },
+
+   "get /monitoreo": {
+     controller: "MonitoreoController",  
+     action: "listar"
+   },
+   
+   "get /monitoreo/:pagina/:tamano": {
+     controller: "MonitoreoController",  
+     action: "listarPaginado"
+   },
+   
+   "get /monitoreo/contar": {
+     controller: "MonitoreoController",  
+     action: "contar"
+   },
+   
+   "get /monitoreo/:id": {
+     controller: "MonitoreoController",  
+     action: "detallar"
+   },
+   
+   "post /monitoreo": {
+     controller: "MonitoreoController",  
+     action: "insertar"  
+   },
+   
+   "put /monitoreo/:id": {
+     controller: "MonitoreoController",  
+     action: "actualizar"  
+   },
+   
+   "delete /monitoreo/:id": {
+     controller: "MonitoreoController",  
+     action: "eliminar"  
+   }
 
   /***************************************************************************
   *                                                                          *
