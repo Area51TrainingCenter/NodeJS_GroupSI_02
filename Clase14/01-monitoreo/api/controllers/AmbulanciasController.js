@@ -9,7 +9,7 @@
 module.exports = {
 	
 	listar: function(req, res){
-		Ambulacias
+		Ambulancias
 			.find({nactivo: 1})
 			.sort({nNumero: 'ASC'})
 			.then(function(registros){
@@ -23,7 +23,7 @@ module.exports = {
 	listarPaginado: function(req, res){
 		var paginado = {page: req.params.pagina, limit: req.params.tamano};
 
-		Ambulacias
+		Ambulancias
 			.find()
 			.sort({nNumero: 'ASC'})
 			.paginate(paginado)
@@ -36,7 +36,7 @@ module.exports = {
 	},
 
 	contar: function(req, res) {
-		Ambulacias
+		Ambulancias
 			.count()
 			.then(function(cantidad){
 				res.json({cantidad: cantidad});
@@ -48,7 +48,7 @@ module.exports = {
 
 	insertar: function(req, res){
 		var data = req.allParams();
-		Ambulacias
+		Ambulancias
 			.create(data)
 			.then(function(registros){
 				res.ok();
@@ -62,7 +62,7 @@ module.exports = {
 		var data = req.allParams();
 		var filtro = {idAmbulancia: req.params.id};
 
-		Ambulacias
+		Ambulancias
 			.update(filtro, data)
 			.then(function(registros){
 				res.ok();
@@ -75,7 +75,7 @@ module.exports = {
 	eliminar: function(req, res){
 		var filtro = {idAmbulancia: req.params.id};
 
-		Ambulacias
+		Ambulancias
 			.destroy(filtro)
 			.then(function(registros){
 				res.ok();
@@ -88,7 +88,7 @@ module.exports = {
 	detallar: function(req, res) {
 		var filtro = {idAmbulancia: req.params.id};
 
-		Ambulacias
+		Ambulancias
 			.find()
 			.where(filtro)
 			.then(function(registros){

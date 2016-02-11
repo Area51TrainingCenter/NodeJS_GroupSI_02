@@ -50,7 +50,7 @@ module.exports = {
 		var data = req.allParams();
 		Medicos
 			.create(data)
-			.then(function(registros){
+			.then(function(registro){
 				res.ok();
 			})
 			.catch(function(err){
