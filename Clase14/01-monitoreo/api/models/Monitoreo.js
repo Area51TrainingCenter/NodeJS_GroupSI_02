@@ -16,23 +16,19 @@ module.exports = {
 		},
 
 		ambulancia: {
-			collection: "Ambulancias",
-			via: "monitoreo"
+			model: "Ambulancias"
 		},
 
 		estado: {
-			collection: "Estados",
-			via: "monitoreo"
+			model: "Estados"
 		},
 
 		medico: {
-			collection: "Medicos",
-			via: "monitoreo"
+			model: "Medicos"
 		},
 
 		paramedico: {
-			collection: "Paramedicos",
-			via: "monitoreo"
+			model: "Paramedicos"
 		}
 	}
 };

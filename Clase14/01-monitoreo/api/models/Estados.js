@@ -26,7 +26,8 @@ module.exports = {
 		},
 
 		monitoreo: {
-			model: "Monitoreo"
+			collection: "Monitoreo",
+			via: "estado"
 		}		
 	}
 };
