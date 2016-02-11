@@ -1,0 +1,57 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Ambulancia</th>
+					<th>Médico</th>
+					<th>Paramédico</th>
+					<th>Estado</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in ctrl.monitoreo">
+					<td>{{item.idMonitoreo}}</td>
+					<td>
+						<select ng-model="item.ambulancia.idAmbulancia">
+							<option ng-repeat="ambulancia in ctrl.ambulancias" value="ambulancia.idAmbulancia" ng-selected="item.ambulancia.idAmbulancia==ambulancia.idAmbulancia">
+								{{ambulancia.nNumero}}
+							</option>
+						</select>
+					</td>
+					<td>
+						<select ng-model="item.medico.idMedico">
+							<option ng-repeat="medico in ctrl.medicos" value="medico.idMedico" ng-selected="item.medico.idMedico==medico.idMedico">
+								{{medico.cNombre}}
+							</option>
+						</select>						
+					</td>
+					<td>
+						<select ng-model="item.paramedico.idParamedico">
+							<option ng-repeat="paramedico in ctrl.paramedicos" value="paramedico.idParamedico" ng-selected="item.paramedico.idParamedico==paramedico.idParamedico">
+								{{paramedico.cNombre}}
+							</option>
+						</select>							
+					</td>
+					<td>
+						<select ng-model="item.estado.idEstado">
+							<option ng-repeat="estado in ctrl.estados" value="estado.idEstado" ng-selected="item.estado.idEstado==estado.idEstado">
+								{{estado.cEstado}}
+							</option>
+						</select>							
+					</td>
+					<td>
+						<a href class="btn btn-success" ng-click="ctrl.sincronizar(item)">Sincronizar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>	
+
+
+		</div>
+	</div>
+</div>
