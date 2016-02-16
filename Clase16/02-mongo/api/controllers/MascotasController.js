@@ -10,7 +10,7 @@ module.exports = {
 	
 	listar: function(req, res){
 		Mascotas
-			.find({nactivo: 1})
+			.find()
 			.sort({nombreMascota: "ASC"})
 			.then(function(registros){
 				res.json({registros: registros});
