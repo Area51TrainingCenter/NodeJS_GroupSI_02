@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+</head>
+<body ng-controller="controlador as ctrl">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+<script>
+	angular
+		.module("app", [])
+		.controller("controlador", ["$http", "$sce", function($http, $sce) {
+
+			$http
+				.get("pdf/generar", {responseType: 'blob'})
+				.success(function(response){
+		            var fileURL = window.URL.createObjectURL(response);
+		            this.pdfContent = $sce.trustAsResourceUrl(fileURL);
+			       	
+			       	var htmlText = '<embed width=100% height=100%'
+                 		+ ' type="application/pdf"'
+                 		+ ' src="'
+                 		+ fileURL
+                 		+ '"></embed>'; 
+
+		             document.write(htmlText);
+		             document.close();
+
+				})
+		}])
+</script>
+
+</body>
+</html>
